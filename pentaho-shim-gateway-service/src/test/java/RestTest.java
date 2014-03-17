@@ -1,3 +1,4 @@
+import org.apache.commons.io.IOUtils;
 import org.glassfish.jersey.media.multipart.FormDataMultiPart;
 import org.glassfish.jersey.media.multipart.MultiPartFeature;
 import org.mortbay.util.ajax.JSON;
@@ -11,6 +12,8 @@ import javax.ws.rs.client.*;
 import javax.ws.rs.core.*;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -37,7 +40,7 @@ public class RestTest {
         System.out.println("XML=>> " + builder.get(String.class));
     }*/
 
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws IOException {
         Client c = ClientBuilder.newClient();
         c.register(MapAdapter.class);
         c.register(MultiPartFeature.class);
@@ -52,6 +55,10 @@ public class RestTest {
         formDataMultiPart = formDataMultiPart.field("inputStream", new FileInputStream("/home/bryan/.bashrc"), MediaType.APPLICATION_OCTET_STREAM_TYPE);
         builder.accept(MediaType.APPLICATION_JSON_TYPE);
         System.out.println("Plain Text=>> " + builder.post(Entity.entity(formDataMultiPart, MediaType.MULTIPART_FORM_DATA_TYPE), String.class));
+        t = c.target("http://localhost:8080/jaxrs/services/hdfs/readFile");
+        builder = t.request();
+        InputStream is = builder.post(Entity.entity(pathAndConfig, MediaType.APPLICATION_XML_TYPE), InputStream.class);
+        System.out.println(IOUtils.toString(is));
         t = c.target("http://localhost:8080/jaxrs/services/hdfs/children");
         builder = t.request();
         pathAndConfig = new PathAndConfig();

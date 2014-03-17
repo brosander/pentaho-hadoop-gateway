@@ -21,6 +21,15 @@ public class PathAndConfig {
     @XmlElement
     private String path;
 
+    public PathAndConfig() {
+
+    }
+
+    public PathAndConfig(String path, HashMap<String,String> map) {
+        this.path = path;
+        this.map = map;
+    }
+
     @XmlJavaTypeAdapter(MapAdapter.class)
     public Map<String, String> getConfig() {
         return Collections.unmodifiableMap(map);

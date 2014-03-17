@@ -11,7 +11,6 @@ import org.pentaho.gateway.api.HdfsService;
 import org.pentaho.gateway.args.PathAndConfig;
 import org.pentaho.gateway.args.RenameParameters;
 import org.pentaho.gateway.args.SetModifiedTimeParameters;
-import org.pentaho.gateway.args.WriteFileParameters;
 import org.pentaho.gateway.hadoopWrappers.HadoopFileSystem;
 import org.pentaho.gateway.hadoopWrappers.impl.HadoopFileSystemImpl;
 import org.pentaho.gateway.util.Pair;
@@ -217,12 +216,12 @@ public class HdfsServiceImpl implements HdfsService {
     @POST
     @javax.ws.rs.Path("/readFile")
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+    @Produces({MediaType.APPLICATION_OCTET_STREAM})
     @Override
-    public Response readFile(PathAndConfig pathAndConfig) throws HadoopGatewayException {
+    public InputStream readFile(PathAndConfig pathAndConfig) throws HadoopGatewayException {
         try {
             Pair<Path, HadoopFileSystem> pair = getPathAndFileSystem(pathAndConfig);
-            return Response.ok(pair.getSecond().open(pair.getFirst()), MediaType.APPLICATION_OCTET_STREAM).build();
+            return pair.getSecond().open(pair.getFirst());
         } catch (IOException e) {
             throw new HadoopGatewayException("Unable to read file " + pathAndConfig.getPath());
         }

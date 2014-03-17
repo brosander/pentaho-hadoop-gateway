@@ -19,7 +19,7 @@ public interface HdfsService {
 
     public void appendFile(PathAndConfig pathAndConfig, InputStream inputStream) throws HadoopGatewayException;
 
-    public Response readFile(PathAndConfig pathAndConfig) throws HadoopGatewayException;
+    public InputStream readFile(PathAndConfig pathAndConfig) throws HadoopGatewayException;
 
     public void delete(PathAndConfig pathAndConfig) throws HadoopGatewayException;
 
