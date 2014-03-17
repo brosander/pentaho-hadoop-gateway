@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: pentaho:pentaho-big-data-plugin:TRUNK-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/pentaho/pentaho-big-data-plugin/TRUNK-SNAPSHOT/pentaho-big-data-plugin-TRUNK-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/pentaho/pentaho-big-data-plugin/TRUNK-SNAPSHOT/pentaho-big-data-plugin-TRUNK-SNAPSHOT-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/pentaho/pentaho-big-data-plugin/TRUNK-SNAPSHOT/pentaho-big-data-plugin-TRUNK-SNAPSHOT-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
