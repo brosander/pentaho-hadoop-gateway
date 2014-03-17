@@ -11,6 +11,6 @@ public class Application extends ResourceConfig {
     public Application() {
         register(JacksonFeature.class);
         register(MultiPartFeature.class);
-        packages(true, "com.aver.restful", "org.pentaho.gateway");
+        packages(true, "org.pentaho.gateway");
     }
 }

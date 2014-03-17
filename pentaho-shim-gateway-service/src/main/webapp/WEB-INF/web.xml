@@ -4,15 +4,6 @@
 <web-app>
 	<display-name>JAX-RS Jersey App</display-name>
 
-    <!--<context-param>
-        <param-name>contextConfigLocation</param-name>
-        <param-value>WEB-INF/2applicationContext.xml</param-value>
-    </context-param>-->
-
-	<!--<listener>
-		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-	</listener>-->
-
 	<listener>
 		<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
 	</listener>
@@ -30,7 +21,6 @@
         <servlet>
             <servlet-name>JAX-RS Jersey App</servlet-name>
             <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
-            <!--<servlet-class>com.sun.jersey.spi.spring.container.servlet.SpringServlet</servlet-class>-->
         <init-param>
             <param-name>javax.ws.rs.Application</param-name>
             <param-value>org.pentaho.gateway.Application</param-value>
