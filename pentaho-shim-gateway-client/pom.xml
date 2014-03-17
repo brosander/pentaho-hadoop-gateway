@@ -158,20 +158,4 @@
             <url>http://repository.pentaho.org/artifactory/public-aggregate</url>
         </repository>
     </repositories>
-
-    <build>
-        <finalName>jaxrs</finalName>
-        <plugins>
-            <plugin>
-                <groupId>org.eclipse.jetty</groupId>
-                <artifactId>jetty-maven-plugin</artifactId>
-                <version>${jetty.version}</version>
-                <configuration>
-                    <webApp>
-                        <contextPath>/jaxrs</contextPath>
-                    </webApp>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
 </project>
